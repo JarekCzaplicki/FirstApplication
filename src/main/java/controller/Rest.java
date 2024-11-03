@@ -3,33 +3,43 @@ package controller;
 import entity.Guest;
 import entity.Room;
 import model.RomReservation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import service.ReservationService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api")
 public class Rest {
 //    controller -> service -> repository (entity)
+    // Rest rest = new Rest();
+    private final ReservationService reservationService;
 
+    public Rest(ReservationService reservationService) {
+        this.reservationService = reservationService;
+    }
 
-    @GetMapping("/guests")   //localhost:8080/api/guests
+    @PostMapping("/guests") //localhost:8080/api/guests
+    @ResponseStatus(HttpStatus.CREATED) // 201 -> CREATED
+    public void addGuest(@RequestBody Guest guest){
+        this.reservationService.addGuest(guest);
+    }
+
+    @GetMapping("/guests")   //localhost:8080/api/guests   200 -> OK
     public List<Guest> getGuests(){
-        return new ArrayList<>();
-//        return reservationService.getGuests();
+       return this.reservationService.getGuests();
     }
 
-    @RequestMapping(path="/reservation", method = RequestMethod.GET) //localhost:8080/api/reservation
+    @RequestMapping(path="/reservations", method = RequestMethod.GET) //localhost:8080/api/reservation
     public List<RomReservation> getReservations(){
-        return new ArrayList<>();
+        return this.reservationService.getReservations();
     }
 
-    @GetMapping("/rooms")
+    @GetMapping("/rooms")  //localhost:8080/api/rooms
     public List<Room> getRooms(){
-        return new ArrayList<>();
+        List<Room> rooms = this.reservationService.getRooms();
+        return rooms;
     }
+
 }

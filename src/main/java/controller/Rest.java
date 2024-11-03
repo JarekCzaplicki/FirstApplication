@@ -2,22 +2,23 @@ package controller;
 
 import entity.Guest;
 import entity.Room;
-import model.RomReservation;
+import model.RoomReservation;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import service.ReservationService;
-
+import util.DateUtil;
+import java.util.Date;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api")
 public class Rest {
-//    controller -> service -> repository (entity)
-    // Rest rest = new Rest();
     private final ReservationService reservationService;
+    private final DateUtil dateUtil;
 
-    public Rest(ReservationService reservationService) {
+    public Rest(ReservationService reservationService, DateUtil dateUtil) {
         this.reservationService = reservationService;
+        this.dateUtil = dateUtil;
     }
 
     @PostMapping("/guests") //localhost:8080/api/guests
@@ -32,14 +33,14 @@ public class Rest {
     }
 
     @RequestMapping(path="/reservations", method = RequestMethod.GET) //localhost:8080/api/reservation
-    public List<RomReservation> getReservations(){
-        return this.reservationService.getReservations();
+    public List<RoomReservation> getReservations(@RequestParam(value="date"
+            , required = false) String dateString){
+        Date date = dateUtil.createDateFrom(dateString);
+        return this.reservationService.getReservations(date);
     }
 
     @GetMapping("/rooms")  //localhost:8080/api/rooms
     public List<Room> getRooms(){
-        List<Room> rooms = this.reservationService.getRooms();
-        return rooms;
+        return this.reservationService.getRooms();
     }
-
 }

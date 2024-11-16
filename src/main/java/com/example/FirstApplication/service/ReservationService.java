@@ -1,13 +1,13 @@
-package service;
+package com.example.FirstApplication.service;
 
-import entity.Guest;
-import entity.Reservation;
-import entity.Room;
-import model.RoomReservation;
+import com.example.FirstApplication.entity.Guest;
+import com.example.FirstApplication.entity.Reservation;
+import com.example.FirstApplication.entity.Room;
+import com.example.FirstApplication.model.RoomReservation;
 import org.springframework.stereotype.Service;
-import reposiotory.GuestRepository;
-import reposiotory.ReservationRepository;
-import reposiotory.RoomRepository;
+import com.example.FirstApplication.reposiotory.GuestRepository;
+import com.example.FirstApplication.reposiotory.ReservationRepository;
+import com.example.FirstApplication.reposiotory.RoomRepository;
 
 import java.util.*;
 

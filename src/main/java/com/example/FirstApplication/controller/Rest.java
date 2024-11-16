@@ -1,17 +1,17 @@
-package controller;
+package com.example.FirstApplication.controller;
 
-import entity.Guest;
-import entity.Room;
-import model.RoomReservation;
+import com.example.FirstApplication.entity.Guest;
+import com.example.FirstApplication.entity.Room;
+import com.example.FirstApplication.model.RoomReservation;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import service.ReservationService;
-import util.DateUtil;
+import com.example.FirstApplication.service.ReservationService;
+import com.example.FirstApplication.util.DateUtil;
 import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api") //localhost:8080/api
 public class Rest {
     private final ReservationService reservationService;
     private final DateUtil dateUtil;

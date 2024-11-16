@@ -1,7 +1,6 @@
-package reposiotory;
+package com.example.FirstApplication.reposiotory;
 
-import entity.Guest;
-import entity.Reservation;
+import com.example.FirstApplication.entity.Reservation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,5 +11,4 @@ import java.sql.Date;
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
 
     Iterable<Reservation> findReservationByReservationDate(Date date);
-
 }

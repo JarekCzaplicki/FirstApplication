@@ -1,4 +1,4 @@
-package util;
+package com.example.FirstApplication.util;
 
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;

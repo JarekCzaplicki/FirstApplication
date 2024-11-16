@@ -1,10 +1,8 @@
-package reposiotory;
+package com.example.FirstApplication.reposiotory;
 
-import entity.Guest;
+import com.example.FirstApplication.entity.Guest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.Optional;
 
 
 @Repository

@@ -1,27 +1,26 @@
-package com.example.FirstApplication.entity;
+package com.hotel.entity;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "ROOMS")
+@Table(name = "rooms")
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ROOM_ID")
-    private long id;
-    @Column(name = "NAME")
+    @Column(name = "room_id")
+    private Long roomId;
     private String name;
-    @Column(name = "ROOM_NUMBER")
+    @Column(name = "room_number")
     private String roomNumber;
-    @Column(name = "BED_INFO")
+    @Column(name = "bed_info")
     private String bedInfo;
 
-    public long getId() {
-        return id;
+    public Long getRoomId() {
+        return roomId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setRoomId(Long roomId) {
+        this.roomId = roomId;
     }
 
     public String getName() {
@@ -46,15 +45,5 @@ public class Room {
 
     public void setBedInfo(String bedInfo) {
         this.bedInfo = bedInfo;
-    }
-
-    @Override
-    public String toString() {
-        return "Room{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", roomNumber='" + roomNumber + '\'' +
-                ", bedInfo='" + bedInfo + '\'' +
-                '}';
     }
 }

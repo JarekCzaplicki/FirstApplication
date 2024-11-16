@@ -6,12 +6,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Date;
+
 @Controller
 @RequestMapping("/web")
-public class GuestControllerWeb {
+public class ControllerWeb {
     private final ReservationService reservationService;
 
-    public GuestControllerWeb(ReservationService reservationService) {
+    public ControllerWeb(ReservationService reservationService) {
         this.reservationService = reservationService;
     }
 
@@ -19,5 +21,11 @@ public class GuestControllerWeb {
     public String guests(Model model) {
         model.addAttribute("guests", this.reservationService.getAllGuest());
         return "hotel-guests";
+    }
+
+    @GetMapping("/reservations")
+    public String reservations(Model model) {
+        model.addAttribute("reservations", this.reservationService.getReservationForDate(new Date()));
+        return "hotel-reservations";
     }
 }

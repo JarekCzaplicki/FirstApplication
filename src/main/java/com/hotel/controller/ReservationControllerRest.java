@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class ReservationControllerRest {
-    // przykład wstrzykiwania przez konstruktor
+
     private final ReservationService reservationService;
     private final DateUtil dateUtil;
 

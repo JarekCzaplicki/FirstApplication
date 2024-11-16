@@ -16,7 +16,6 @@ import java.util.List;
 
 @Service
 public class ReservationService {
-    //    @Autowired
     private final GuestRepository guestRepository;
     private final RoomRepository roomRepository;
     private final ReservationRepository reservationRepository;

@@ -5,12 +5,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * @Component - najbardziej ogólny, może być stosowany do Bean-ów będącymi mapperami, narzędziami
- * @Repository - warstwa bazodanowa
- * @Service - logika biznesowa
- * @Controller - warstwa prezentacji 'WEB'
- * @RestController - warstwa prezentacji 'JSON'
+ * @Component - basic one
+ * @Repository - for database layer
+ * @Service - biznes logic
+ * @Controller - web presentation layer 'WEB'
+ * @RestController - rest presentation layer 'JSON'
  */
-@Repository // nadmiarowe ponieważ implementacja domyślna interfejsu jest juz oznaczona jako @Repository
+@Repository
 public interface GuestRepository extends JpaRepository<Guest, Long> {
 }

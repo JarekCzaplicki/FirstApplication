@@ -39,6 +39,12 @@ public class Rest {
         return this.reservationService.getReservations(date);
     }
 
+
+
+
+
+
+
     @GetMapping("/rooms")  //localhost:8080/api/rooms
     public List<Room> getRooms(){
         return this.reservationService.getRooms();
